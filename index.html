@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mini Calendar | UI Design</title>
+
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			/*background: #111;*/
+			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(bg.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+		.calendar{
+			position: relative;
+			width: 200px;
+			background: #fff;
+			text-align: center;
+			border-radius: 8px;
+			overflow: hidden;
+			-webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+		}
+		.calendar #monthName{
+			position: relative;
+			padding: 5px 10px;
+			background: #ff6331;
+			color: #fff;
+			font-size: 30px;
+			font-weight: 700;
+		}
+		.calendar #dayName{
+			margin-top: 20px;
+			font-size: 20px;
+			font-weight: 300;
+			color: #999;
+		}
+		.calendar #dayNumber{
+			margin-top: 20px;
+			line-height: 1em;
+			font-size: 80px;
+			font-weight: 700;
+			color: #333;
+		}
+		.calendar #year{
+			margin-bottom: 20px;
+			font-size: 20px;
+			font-weight: 500;
+			color: #999;
+		}
+	</style>
+</head>
+<body>
+	<div class="calendar">
+		<p id="monthName"></p>
+		<p id="dayName"></p>
+		<p id="dayNumber"></p>
+		<p id="year"></p>
+	</div>
+
+	<script>
+		const lang = navigator.language;
+		let date = new Date();
+
+		let dayNumber = date.getDate();
+		let month = date.getMonth();
+		let dayName = date.toLocaleString(lang,{weekday: 'long'})
+		let monthName = date.toLocaleString(lang,{month: 'long'})
+		let year = date.getFullYear()
+
+		document.getElementById('monthName').innerHTML = monthName;
+		document.getElementById('dayName').innerHTML = dayName;
+		document.getElementById('dayNumber').innerHTML = dayNumber;
+		document.getElementById('year').innerHTML = year;
+
+		
+	</script>
+</body>
+</html>
